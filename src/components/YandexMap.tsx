@@ -9,8 +9,8 @@ type YandexMapProps = {
 
 const YandexMap: React.FC<YandexMapProps> = ({forecast}) => {
 
-    const [userLocation, setUserLocation] = useState<[number, number]>();
-    const [cityLocation, setCityLocation] = useState<[number, number]>();
+    const [userLocation, setUserLocation] = useState<[number, number]>([55.751574, 37.573856]);
+    const [cityLocation, setCityLocation] = useState<[number, number]>([55.751574, 37.573856]);
     const [error, setError] = useState<string | null>(null);
 
 
@@ -39,7 +39,7 @@ const YandexMap: React.FC<YandexMapProps> = ({forecast}) => {
         return <div>Загрузка карты...</div>;
     }
 
-    const mapCenter = cityLocation?.reduce((a, b) => a + b) !== 0 ? cityLocation: userLocation[0] > 0 ? userLocation : [55.751574, 37.573856] ;
+    const mapCenter:number[] = cityLocation?.reduce((a, b) => a + b) !== 0 ? cityLocation: userLocation[0] > 0 ? userLocation : [55.751574, 37.573856] ;
 
     return (
         <div className="rounded-xl overflow-hidden shadow-xl w-[350px] h-[300px] max-[1600px]:w-[250px] max-[1362px]:w-[200px] max-[1362px]:h-[200px] max-[1122px]:w-[500px]
