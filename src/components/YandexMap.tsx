@@ -42,7 +42,8 @@ const YandexMap: React.FC<YandexMapProps> = ({forecast}) => {
     const mapCenter = cityLocation?.reduce((a, b) => a + b) !== 0 ? cityLocation: userLocation[0] > 0 ? userLocation : [55.751574, 37.573856] ;
 
     return (
-        <div className="rounded-xl overflow-hidden shadow-xl">
+        <div className="rounded-xl overflow-hidden shadow-xl w-[350px] h-[300px] max-[1600px]:w-[250px] max-[1362px]:w-[200px] max-[1362px]:h-[200px] max-[1122px]:w-[500px]
+        max-[1122px]:h-[300px] max-[853px]:w-[350px] max-[853px]:h-[200px] max-[666px]:w-[280px] max-[666px]:h-[140px] max-[535px]:w-[220px]">
             {error && <p className="text-red-700 text-xl font-medium">{error}</p>}
             <YMaps  query={{ apikey: "0f5fa129-0a27-4d25-985c-e95803db1dea" }}>
                 <Map
@@ -50,8 +51,10 @@ const YandexMap: React.FC<YandexMapProps> = ({forecast}) => {
                         center: mapCenter,
                         zoom: 15,
                     }}
-                    width="460px"
-                    height="670px"
+                    width="100%"
+                    height="100%"
+
+
 
                 >
                     <Placemark

@@ -158,6 +158,8 @@ const App = () => {
 
 
         } catch (err) {
+            setSearch('')
+            setPlaceholder('Город не найден!')
             console.error(err)
         }
     }
@@ -182,7 +184,7 @@ const App = () => {
 
 
     return (
-        <div className="w-full h-full px-16 py-8 bg-neutral-800 flex gap-20 bg-center bg-no-repeat bg-cover"
+        <div className="w-full min-h-[1080px] px-16 py-8 bg-neutral-800 flex gap-20 bg-center bg-no-repeat bg-cover"
             style={{backgroundImage: `url(${weatherImage})`}}
         >
 
@@ -190,7 +192,8 @@ const App = () => {
                 <div className="flex justify-between items-center w-full">
                     <div className="flex flex-col gap-2">
                         <div>
-                            <h1 className='text-6xl text-white font-bold'>Search...</h1>
+                            <h1 className='text-6xl text-white font-bold max-[1600px]:text-5xl max-[1362px]:text-4xl max-[853px]:text-2xl max-[666px]:text-xl
+                                max-[535px]:text-[14px]'>Search...</h1>
                         </div>
                         <div className="flex gap-2">
                             <SearchInput value={search} onChange={(e) => setSearch(e.target.value)} placeholder={placeholder}/>
@@ -198,83 +201,138 @@ const App = () => {
                         </div>
 
                     </div>
-                    <h1 className="text-7xl text-white font-bold flex gap-1"><FaCloudSunRain /> Weather</h1>
+                    <h1 className="text-7xl text-white font-bold flex gap-1 max-[1600px]:text-5xl max-[1362px]:text-4xl max-[853px]:text-2xl max-[666px]:text-[16px]
+                        max-[535px]:text-[12px]"><FaCloudSunRain /> Weather</h1>
                     <div className="flex flex-col items-start gap-2 text-white">
                         <div className="flex gap-4 items-end">
-                            <h1 className="text-6xl font-bold">{forecast.city.name ? forecast.city.name : 'City'}</h1>
-                            <h2 className="text-3xl font-medium">{forecast.city.country ? forecast.city.country : 'Country'}</h2>
+                            <h1 className="text-6xl font-bold max-[1600px]:text-4xl max-[1362px]:text-3xl max-[853px]:text-2xl max-[666px]:text-[16px] max-[535px]:text-[12px]">{forecast.city.name ? forecast.city.name : 'City'}</h1>
+                            <h2 className="text-3xl font-medium max-[1362px]:text-2xl max-[853px]:text-xl max-[666px]:text-[16px] max-[535px]:text-[12px]">{forecast.city.country ? forecast.city.country : 'Country'}</h2>
                         </div>
                         <span
-                            className="text-3xl font-medium">{forecast.list[0].weather[0].main ? forecast.list[0].weather[0].main : 'Empty'}
+                            className="text-3xl font-medium max-[1362px]:text-2xl max-[853px]:text-xl max-[666px]:text-[16px] max-[535px]:text-[12px]">{forecast.list[0].weather[0].main ? forecast.list[0].weather[0].main : 'Empty'}
                         </span>
 
 
                     </div>
                 </div>
 
-                <div className="flex justify-between items-center w-full">
-                    <YandexMap forecast={forecast}/>
+                <div className="flex justify-between gap-4 w-full max-[1122px]:flex-col">
+
                     <div className="text-white flex flex-col gap-6">
 
 
-                        <div className="flex gap-10">
-                            <div className="flex flex-col gap-4">
-                                <h1 className="shadow-xl text-2xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center">
+                        <div className="flex gap-10 max-[666px]:gap-3 max-[535px]:gap-0.5">
+                            <div className="flex flex-col gap-4 ">
+                                <h1 className="shadow-xl text-2xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center
+                                    max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                    max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                    max-[853px]:text-[7px] max-[853px]:w-16">
                                     <BsCalendar2Date/> Date
                                 </h1>
-                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center">
+                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center
+                                    max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                    max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                    max-[853px]:text-[7px] max-[853px]:w-16">
                                     <FaTemperatureLow/> Температура:
                                 </span>
-                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center">
-                                    <FaTemperatureHigh/> Ощущается как:
+                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center
+                                    max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                    max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                    max-[853px]:text-[7px] max-[853px]:w-16">
+                                    <FaTemperatureHigh/> Ощущается:
                                 </span>
-                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center">
+                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center
+                                    max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                    max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                    max-[853px]:text-[7px] max-[853px]:w-16">
                                     <IoWaterOutline/> Влажность:
                                 </span>
-                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center">
-                                    <MdCompress/> Атмосферное давление:
+                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center
+                                    max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                    max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                    max-[853px]:text-[7px] max-[853px]:w-16">
+                                    <MdCompress/> Давление:
                                 </span>
-                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center">
+                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center
+                                    max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                    max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                    max-[853px]:text-[7px] max-[853px]:w-16">
                                     <FaCloud/> Облачность:
                                 </span>
-                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center">
+                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center
+                                    max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                    max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                    max-[853px]:text-[7px] max-[853px]:w-16">
                                     <BsFillEyeSlashFill/> Видимость:
                                 </span>
-                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center">
+                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center
+                                    max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                    max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                    max-[853px]:text-[7px] max-[853px]:w-16">
                                     <BsFillMoonStarsFill/> Погода:
                                 </span>
-                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center">
+                                <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg flex gap-1 items-center
+                                    max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                    max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                    max-[853px]:text-[7px] max-[853px]:w-16">
                                     <GiWindSlap/> Ветер:
                                 </span>
                             </div>
                             {forecast.list.map((item) => {
                                 return (
                                     <div className="flex flex-col items-center gap-4">
-                                        <h1 className="shadow-xl text-2xl font-medium bg-black/65 px-3 py-4 rounded-lg w-40">
+                                        <h1 className="shadow-xl text-2xl font-medium bg-black/65 px-3 py-4 rounded-lg w-40
+                                            max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                            max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                            max-[853px]:text-[7px] max-[853px]:w-16">
                                             {item.dt_txt.slice(0, 10).split('-').reverse().join('-')}
                                         </h1>
-                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40">
+                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40
+                                            max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                            max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                            max-[853px]:text-[7px] max-[853px]:w-16">
                                             {item.main.temp}°C
                                         </span>
-                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40">
+                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40
+                                            max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                            max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                            max-[853px]:text-[7px] max-[853px]:w-16">
                                             {item.main.feels_like}°C
                                         </span>
-                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40">
+                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40
+                                            max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                            max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                            max-[853px]:text-[7px] max-[853px]:w-16">
                                             {item.main.humidity}%
                                         </span>
-                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40">
+                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40
+                                            max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                            max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                            max-[853px]:text-[7px] max-[853px]:w-16">
                                             {item.main.pressure} гПа
                                         </span>
-                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40">
+                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40
+                                            max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                            max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                            max-[853px]:text-[7px] max-[853px]:w-16">
                                             {item.clouds.all}%
                                         </span>
-                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40">
+                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40
+                                            max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                            max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                            max-[853px]:text-[7px] max-[853px]:w-16">
                                             {item.visibility} м
                                         </span>
-                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40">
+                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40
+                                            max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                            max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                            max-[853px]:text-[7px] max-[853px]:w-16">
                                             {item.weather[0].main}
                                         </span>
-                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40">
+                                        <span className="shadow-xl text-xl font-bold bg-black/65 px-3 py-4 rounded-lg w-40
+                                            max-[1600px]:text-[16px] max-[1600px]:px-2 max-[1600px]:py-3 max-[1600px]:w-32
+                                            max-[1362px]:text-[13px] max-[1362px]:font-medium max-[1362px]:w-24
+                                            max-[853px]:text-[7px] max-[853px]:w-16">
                                             {item.wind.speed} м/с
                                         </span>
 
@@ -284,8 +342,11 @@ const App = () => {
                             })}
                         </div>
                     </div>
+                    <YandexMap forecast={forecast}/>
                 </div>
+
             </div>
+
 
 
         </div>
