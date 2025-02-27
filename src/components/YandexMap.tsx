@@ -49,7 +49,7 @@ const YandexMap: React.FC<YandexMapProps> = ({ forecast }) => {
             }
             const script = document.createElement("script");
             script.src =
-                "https://api-maps.yandex.ru/2.1/?apikey=0f5fa129-0a27-4d25-985c-e95803db1dea&lang=ru_RU";
+                `https://api-maps.yandex.ru/2.1/?apikey=${import.meta.env.VITE_YMAPS_API_KEY}&lang=ru_RU`;
             script.async = true;
             script.onload = () => {
                 (window as any).ymaps.ready(() => resolve((window as any).ymaps));
