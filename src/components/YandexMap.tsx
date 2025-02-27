@@ -16,6 +16,7 @@ const YandexMap: React.FC<YandexMapProps> = ({ forecast }) => {
     useEffect(() => {
         if (forecast && forecast.city && forecast.city.coord) {
             setCityLocation([forecast.city.coord.lat, forecast.city.coord.lon]);
+            setError(null);
         }
     }, [forecast]);
 
